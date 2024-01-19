@@ -41,3 +41,15 @@ for (let i = 0; i < buttons.length; i++) {
     appendToDisplay(buttonValue);
   });
 }
+
+// Add event listener for keypress events
+document.addEventListener('keypress', (event) => {
+  const keyValue = event.key;
+  if (!isNaN(keyValue) || keyValue === '.' || keyValue === '+' || keyValue === '-' || keyValue === '*' || keyValue === '/') {
+    appendToDisplay(keyValue);
+  } else if (keyValue === 'Enter') {
+    calculate();
+  } else if (keyValue === 'c' || keyValue === 'C') {
+    clearDisplay();
+  }
+});
